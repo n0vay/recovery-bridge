@@ -14,12 +14,13 @@ import SignUp from "./pages/signup";
 import SignUpAuthentication from "./pages/signupauth";
 import SignInAuthentication from "./pages/signinauth";
 import { Account } from "./account";
-
+import Status from "./status";
 function App() {
   return <>
     <Account>
     <BrowserRouter>
       <Routes>
+        <Route path="/status" exact element = {<Status />}></Route>
         <Route path="/" exact element = {<Home />}></Route>
         <Route path="/about" exact element = {<About />}></Route>
         <Route path="/settings" exact element = {<Settings />}></Route>
