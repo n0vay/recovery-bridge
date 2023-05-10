@@ -8,6 +8,7 @@ import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
+import Typography from "@mui/material/Typography";
 
 function PatientHistory() {
   return (
@@ -17,7 +18,10 @@ function PatientHistory() {
       <Box sx={{ display: "flex" }}>
         <Sidenav />
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <div>Patient History</div>
+        <Typography variant="h4" gutterBottom>
+            Patient History
+          </Typography>
+          <Box height={10} />
           <Timeline position="alternate">
             <TimelineItem>
               <TimelineSeparator>
