@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='number/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='number/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='number/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='number/css'>
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='number/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='number/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='number/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='number/css'>
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='number/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='number/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='number/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='number/css'>
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='number/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='number/css'>
+<!-- ink href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='number/css'> -->
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Patient Status</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="POST">
+    <input type="number" name="AGE" placeholder="AGE" required="required" />
+    <input type="number" name="ALCDRUG" placeholder="ALCDRUG" required="required" />
+		<input type="number" name="ALCFLG" placeholder="ALCFLG" required="required" />
+		<input type="number" name="AMPHFLG" placeholder="AMPHFLG" required="required" />
+    <input type="number" name="DETCRIM" placeholder="DETCRIM" required="required" />
+    <input type="number" name="DSMCRIT" placeholder="DSMCRIT" required="required" />
+		<input type="number" name="EMPLOY" placeholder="EMPLOY" required="required" />
+		<input type="number" name="EMPLOY_D" placeholder="EMPLOY_D" required="required" />
+    <input type="number" name="FREQ1" placeholder="FREQ1" required="required" />
+    <input type="number" name="LOS" placeholder="LOS" required="required" />
+		<input type="number" name="MARFLG" placeholder="MARFLG" required="required" />
+		<input type="number" name="METHFLG" placeholder="METHFLG" required="required" />
+    <input type="number" name="OPSYNFLG" placeholder="OPSYNFLG" required="required" />
+		<input type="number" name="SERVICES" placeholder="SERVICES" required="required" />
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_number }}
+
+ </div>
+
+
+</body>
+</html>

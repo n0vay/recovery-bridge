@@ -15,6 +15,9 @@ import SignUpAuthentication from "./pages/signupauth";
 import SignInAuthentication from "./pages/signinauth";
 import { Account } from "./account";
 import Status from "./status";
+import PatientPrediction2 from "./pages/patient/prediction2";
+
+
 function App() {
   return <>
     <Account>
@@ -38,7 +41,7 @@ function App() {
         <Route path="/patientinformation" exact element = {<PatientInformation />}></Route>
         <Route path="/patienthistory" exact element = {<PatientHistory />}></Route>
         <Route path="/patientmedication" exact element = {<PatientMedication />}></Route>
-        <Route path="/patientprediction" exact element = {<PatientPrediction />}></Route>
+        <Route path="/patientprediction" exact element = {<PatientPrediction2 />}></Route>
         <Route path="/patienttest" exact element = {<PatienTest />}></Route>
         <Route path="/patientvitals" exact element = {<PatientVitals />}></Route>
 
