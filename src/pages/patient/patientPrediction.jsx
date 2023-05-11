@@ -5,7 +5,8 @@ import { Box } from "@mui/system";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useFormik } from "formik";
-
+import PatientAccordion from "../../components/accordion";
+import { Typography } from "@mui/material";
 function PatientPrediction() {
   const formik = useFormik({
     initialValues: {
@@ -29,6 +30,25 @@ function PatientPrediction() {
     },
     onSubmit: (values) => {
       console.log(values);
+      fetch(
+        "https://q8x543ybpk.execute-api.us-east-1.amazonaws.com/beta/send-data",
+        {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Prediction result:", data);
+          // Do something with the prediction result
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
     },
   });
 
@@ -40,7 +60,11 @@ function PatientPrediction() {
         <Sidenav />
         <form onSubmit={formik.handleSubmit}>
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-            <div>Patient Prediction</div>
+          <Typography variant="h4" gutterBottom>
+            Patient Prediction
+          </Typography>
+          <Box height={10} />
+            <PatientAccordion />
             <Box height={30} />
             <Box width={500}>
               <TextField
