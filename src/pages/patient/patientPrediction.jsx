@@ -5,11 +5,14 @@ import { Box } from "@mui/system";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useFormik } from "formik";
-import PatientAccordion from "../../components/accordion";
 import { Typography } from "@mui/material";
-function PatientPrediction() {
+import { useState } from "react";
+
+function PatientPrediction({ initialValues = null }) {
+  const [data, setData] = useState("");
+
   const formik = useFormik({
-    initialValues: {
+    initialValues: initialValues ?? {
       name: "",
       patientid: "",
       age: "",
@@ -28,6 +31,7 @@ function PatientPrediction() {
       discharge: "",
       treatment: "",
     },
+
     onSubmit: (values) => {
       console.log(values);
       fetch(
@@ -45,11 +49,33 @@ function PatientPrediction() {
         .then((data) => {
           console.log("Prediction result:", data);
           // Do something with the prediction result
+          setData(JSON.parse(data.body)["prediction"]);
         })
         .catch((error) => {
           console.error("Error:", error);
         });
     },
+
+    // onSubmit: (values) => {
+    //   console.log(values);
+    //   fetch("https://q8x543ybpk.execute-api.us-east-1.amazonaws.com/beta/send-data", {
+    //     method: "POST",
+    //     mode: 'cors',
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(values),
+    //   })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       console.log("Prediction result:", data);
+    //       // Store the prediction result in the component state
+    //       this.setState({ predictionResult: data });
+    //     })
+    //     .catch((error) => {
+    //       console.error("Error:", error);
+    //     });
+    // },
   });
 
   return (
@@ -60,11 +86,7 @@ function PatientPrediction() {
         <Sidenav />
         <form onSubmit={formik.handleSubmit}>
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <Typography variant="h4" gutterBottom>
-            Patient Prediction
-          </Typography>
-          <Box height={10} />
-            <PatientAccordion />
+            <div>Patient Prediction</div>
             <Box height={30} />
             <Box width={500}>
               <TextField
@@ -262,6 +284,7 @@ function PatientPrediction() {
               <Button type="submit" variant="contained" size="large" fullWidth>
                 Predict
               </Button>
+              <div>{data}</div>
             </Box>
           </Box>
         </form>
