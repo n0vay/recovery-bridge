@@ -13,6 +13,7 @@ import SignUpAuthentication from "./pages/signupauth";
 import SignInAuthentication from "./pages/signinauth";
 import { Account } from "./account";
 import Status from "./status";
+import PatientUpload from "./pages/patient/patientUpload";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
             <Route path="/" exact element={<Home />}></Route>
             <Route path="/about" exact element={<About />}></Route>
             <Route path="/settings" exact element={<Settings />}></Route>
-
+            <Route path="/upload" exact elemeny={<PatientUpload />}></Route>
             {/* Login and Signup Routes */}
             <Route
               path="/signin"
