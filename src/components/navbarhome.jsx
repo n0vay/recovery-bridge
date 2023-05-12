@@ -42,14 +42,16 @@ export default function NavbarHome() {
             Contact
           </Button>
           <Box sx={{ flexGrow: 0.01 }} />
-          <Button
-            type="text"
-            variant="text"
-            color="inherit"
-            sx={{ mt: 2, mb: 2 }}
-          >
-            Chat
-          </Button>
+          <a href="https://api-chtbot.s3.amazonaws.com/chat.html">
+            <Button
+              type="text"
+              variant="text"
+              color="inherit"
+              sx={{ mt: 2, mb: 2 }}
+            >
+              Chat
+            </Button>
+          </a>
           <Box sx={{ flexGrow: 0.01 }} />
           <Button
             type="text"
@@ -69,8 +71,8 @@ export default function NavbarHome() {
             sx={{ mt: 2, mb: 2 }}
             size="large"
             onClick={() => {
-                navigate("/signin");
-              }}
+              navigate("/signin");
+            }}
           >
             Sign In
           </Button>
