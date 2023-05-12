@@ -9,13 +9,10 @@ import PatientMedication from "./pages/patient/patientMedication";
 import PatientPrediction from "./pages/patient/patientPrediction";
 import PatienTest from "./pages/patient/patientTest";
 import PatientVitals from "./pages/patient/patientVitals";
-import SignIn from "./pages/signin";
-import SignUp from "./pages/signup";
 import SignUpAuthentication from "./pages/signupauth";
 import SignInAuthentication from "./pages/signinauth";
 import { Account } from "./account";
 import Status from "./status";
-import PatientPrediction2 from "./pages/patient/prediction2";
 
 function App() {
   return (
@@ -23,6 +20,7 @@ function App() {
       <Account>
         <BrowserRouter>
           <Routes>
+            {/* Common Routes */}
             <Route path="/status" exact element={<Status />}></Route>
             <Route path="/" exact element={<Home />}></Route>
             <Route path="/about" exact element={<About />}></Route>
