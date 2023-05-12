@@ -32,14 +32,14 @@ function PatientInformation() {
           <Box height={10} />
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
-              <Grid xs={1}>
+              <Grid xs={2}>
                 <Avatar
                   alt="Salman"
                   srcSet="http://images.catchnews.com/upload/2015/10/09/salman-khan-in-tere-naam_127994.jpg"
                   sx={{ width: 150, height: 150 }}
                 />
               </Grid>
-              <Grid xs={5.5}>
+              <Grid xs={5}>
                 <Stack spacing={3}>
                   <TextField
                     id="name"
@@ -55,9 +55,9 @@ function PatientInformation() {
                   />
                 </Stack>
               </Grid>
-              <Grid xs={5.5}>
+              <Grid xs={5}>
                 <Stack spacing={3}>
-                <TextField
+                  <TextField
                     id="occupation"
                     label="Occupation"
                     type="text"
